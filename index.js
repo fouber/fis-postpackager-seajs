@@ -25,7 +25,7 @@ module.exports = function(ret, settings, conf, opt){ //打包后处理
     fis.util.map(ret.src, function(subpath, file){
         if(file.isHtmlLike){ //类html文件
             var content = file.getContent();
-            if(/\bsea\.use\s*\(/.test(content)){ //如果有sea.use(，才会插入
+            if(/\bseajs\.use\s*\(/.test(content)){ //如果有sea.use(，才会插入
                 //插入到页面</head>标签结束之前
                 content = content.replace(/<\/head>/, script + '\n$&');
                 file.setContent(content);
